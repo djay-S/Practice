@@ -1,7 +1,6 @@
 package practice.leetcode;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 //https://leetcode.com/problems/product-of-array-except-self/
 public class ProductOfArrayExceptSelf {
@@ -22,12 +21,12 @@ public class ProductOfArrayExceptSelf {
         Integer[] right = new Integer[nums.length];
 
         for (int i = 0; i < nums.length; i++) {
-            left[i] = getProductExceptIdx(nums, i);
-            right[i] = getProductExceptIdx(reverse, nums.length - i - 1);
+            left[i] = getPreviousProductExceptIdx(nums, left, i);
+            right[i] = getPreviousProductExceptIdx(reverse, right, i);
         }
 
         for (int i = 0; i < nums.length; i++) {
-            result[i] = left[i] * right[i];
+            result[i] = left[i] * right[nums.length - i - 1];
         }
 
         return result;
@@ -41,13 +40,10 @@ public class ProductOfArrayExceptSelf {
         return rev;
     }
 
-    private static Integer getProductExceptIdx(int[] nums, int idx) {
-        int product = 1;
-        int i = 0;
-        while (i < idx) {
-            product *= nums[i];
-            i++;
+    private static Integer getPreviousProductExceptIdx(int[] nums, Integer[] arr, int idx) {
+        if (idx > 0) {
+            return (nums[idx - 1] * arr[idx - 1]);
         }
-        return product;
+        return 1;
     }
 }
