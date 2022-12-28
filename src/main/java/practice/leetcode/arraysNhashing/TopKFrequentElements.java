@@ -1,4 +1,4 @@
-package practice.leetcode;
+package practice.leetcode.arraysNhashing;
 
 import java.util.*;
 import java.util.stream.Collectors;
