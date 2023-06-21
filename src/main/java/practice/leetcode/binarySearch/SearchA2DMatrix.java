@@ -61,4 +61,22 @@ public class SearchA2DMatrix {
         }
         return false;
     }
+
+    private static boolean binarySearch2(Integer[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+        int mid = (left + right) / 2;
+
+        while (left <= right) {
+            mid = (left + right) / 2;
+            if (target == arr[mid])
+                return true;
+            if (target > arr[mid]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return false;
+    }
 }
