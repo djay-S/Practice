@@ -1,8 +1,10 @@
 package practice.leetcode.linkedList;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static practice.leetcode.linkedList.LinkedListUtils.arrToLinkedList;
+import static practice.leetcode.linkedList.LinkedListUtils.linkedListToArr;
 
 //https://leetcode.com/problems/reverse-linked-list/
 public class ReverseLinkedList {
@@ -32,45 +34,5 @@ public class ReverseLinkedList {
             head = nxt;
         }
         return prev;
-    }
-
-    private static ListNode arrToLinkedList(Integer[] arr) {
-        if (arr.length == 0) {
-            return null;
-        }
-        int index = 0;
-        ListNode linkedList = new ListNode(arr[index++]);
-        ListNode head = linkedList;
-
-        while (index < arr.length) {
-            ListNode node = new ListNode(arr[index]);
-            head.next = node;
-            head = head.next;
-            index++;
-        }
-        return linkedList;
-    }
-
-    private static List<Integer> linkedListToArr(ListNode head) {
-        ListNode node = head;
-        List<Integer> list = new ArrayList<>();
-
-        while (node != null) {
-            list.add(node.val);
-            node = node.next;
-        }
-        return list;
-    }
-}
-class ListNode{
-    int val;
-    ListNode next;
-    ListNode(){}
-    ListNode(int val) {
-        this.val = val;
-    }
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
     }
 }
