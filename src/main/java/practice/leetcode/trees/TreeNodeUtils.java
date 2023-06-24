@@ -5,7 +5,7 @@ import java.util.List;
 
 public class TreeNodeUtils {
     public static TreeNode arrToTreeNode(Integer[] arr, int index) {
-        if (arr.length == 0 || index >= arr.length) {
+        if (arr.length == 0 || index >= arr.length || arr[index] == null) {
             return null;
         }
 
