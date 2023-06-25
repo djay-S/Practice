@@ -1,8 +1,5 @@
 package practice.leetcode.trees;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TreeNodeUtils {
     public static TreeNode arrToTreeNode(Integer[] arr, int index) {
         if (arr.length == 0 || index >= arr.length || arr[index] == null) {
