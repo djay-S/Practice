@@ -2,12 +2,11 @@ package designPatterns.factory;
 
 import designPatterns.factory.professions.Doctor;
 import designPatterns.factory.professions.Engineer;
-import designPatterns.factory.professions.ProfessionImpl;
 import designPatterns.factory.professions.Teacher;
 
 public class ProfessionFactory {
 
-    static ProfessionImpl getProfession(String professionName) {
+    static Profession getProfession(String professionName) {
         if (professionName == null || professionName.isBlank()) {
             throw new RuntimeException("Profession name not provided");
         }
@@ -18,7 +17,16 @@ public class ProfessionFactory {
         if (professionName.equalsIgnoreCase("teacher"))
             return new Teacher();
         else
-            return new ProfessionImpl();
+            return getProfession();
+    }
+
+    private static Profession getProfession() {
+        return new Profession() {
+            @Override
+            public void introduce() {
+                System.out.println("This is Profession.");
+            }
+        };
     }
 
 }

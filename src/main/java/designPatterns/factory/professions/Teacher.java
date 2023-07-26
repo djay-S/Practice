@@ -2,7 +2,7 @@ package designPatterns.factory.professions;
 
 import designPatterns.factory.Profession;
 
-public class Teacher extends ProfessionImpl implements Profession {
+public class Teacher implements Profession {
 
     @Override
     public void introduce() {
